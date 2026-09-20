@@ -1,11 +1,20 @@
 ---
-import Welcome from '../components/Welcome.astro';
 import Layout from '../layouts/Layout.astro';
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
 ---
 
-<Layout>
-	<Welcome />
+<Layout title="首页">
+  <h1>你好，我是 [天堂猫0917] 👋</h1>
+  <p>我是一名开发者，这里记录我的文章和作品。</p >
+
+  <h2>最新文章</h2>
+  <p><a href="/blog">查看全部文章 →</a ></p >
+
+  <h2>作品</h2>
+  <p><a href="/projects">查看全部作品 →</a ></p >
+
+  <h2>联系我</h2>
+  <p>
+    <a href="https://github.com/HeavenCat0917">GitHub</a > ·
+    <a href="mailto:karlcorduroy0917@qq.com">邮箱</a >
+  </p >
 </Layout>

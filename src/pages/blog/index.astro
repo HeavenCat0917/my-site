@@ -1,0 +1,28 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const modules = import.meta.glob('./*.md', { eager: true });
+
+const posts = Object.entries(modules).map(([path, mod]) => {
+  const fm = mod.frontmatter || {};
+  return {
+    slug: path.split('/').pop().replace('.md', ''),
+    title: String(fm.title || '未命名'),
+    date: String(fm.date || ''),
+  };
+});
+
+posts.sort((a, b) => b.date.localeCompare(a.date));
+---
+
+<Layout title="文章">
+  <h1>文章</h1>
+  <ul>
+    {posts.map((post) => (
+      <li>
+        <a href= '/blog/first-post' + post.slug}>{post.title}</a >
+        <span> — {post.date}</span>
+      </li>
+    ))}
+  </ul>
+</Layout>
