@@ -2,22 +2,25 @@
 import Layout from './Layout.astro';
 
 const { frontmatter } = Astro.props;
-const isProjects = Astro.url.pathname.startsWith('/projects');
+
+const path = Astro.url.pathname;
+
+const backLink = path.startsWith('/projects')
+? { href: '/projects' , label: '← 返回作品列表'}
+: path.startsWith('/poem')
+? { href: '/poem', label: '← 返回诗歌列表' }
+: { href: '/blog', label: '← 返回文章列表' };
 ---
 
 <Layout title={frontmatter.title}>
   <article>
     <h1>{frontmatter.title}</h1>
     <p class="meta">
-      {frontmatter.date}
+      {frontmatter.date?.slice(0, 10)}
       {frontmatter.tech && ` · ${frontmatter.tech}`}
     </p >
     <slot />
-    {isProjects ? (
-      <p><a href=" ">← 返回作品列表</a ></p >
-    ) : (
-      <p><a href="/blog">← 返回文章列表</a ></p >
-    )}
+    <p><a href={backLink.href}>{backLink.label}</a></p>
   </article>
 </Layout>
 
@@ -27,6 +30,19 @@ const isProjects = Astro.url.pathname.startsWith('/projects');
     font-size: 0.9rem;
     margin-top: -0.5rem;
     margin-bottom: 2rem;
+  }
+  article :global(p) {
+    text-indent: 2em;
+  }
+  article :global(blockquote p) {
+    text-indent: 0;
+  }
+  article :global(blockquote) {
+    border-left: 4px solid #ddd;
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    color: #666;
+    font-style: italic;
   }
   article :global(h2) {
     margin-top: 2rem;

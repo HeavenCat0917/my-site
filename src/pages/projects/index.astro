@@ -8,7 +8,8 @@ const posts = Object.entries(modules).map(([path, mod]) => {
   return {
     slug: path.split('/').pop().replace('.md', ''),
     title: String(fm.title || '未命名'),
-    date: String(fm.date || ''),
+    date: fm.date ? new
+    Date(fm.date).toISOString().slice(0, 10) : '',
   };
 });
 

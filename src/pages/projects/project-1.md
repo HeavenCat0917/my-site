@@ -1,10 +1,12 @@
 ---
-title: "我的第一个作品"
-description: "这是作品简介"
-date: 2026-09-20
+title: "牺牲"
+description: "这是我的第一个项目"
+date: 2026-09-18
 tech: "Astro, TypeScript"
-layout: "../../layouts/Layout.astro"
+layout: "../../layouts/PostLayout.astro"
 ---
+
+> 这所学校不就是这样吗。人吃人，人杀人，这是每天都在上演再寻常不过的戏剧！
 
 这是我的第一个作品，可以在这里写项目介绍。
 

@@ -16,12 +16,12 @@ const posts = Object.entries(modules).map(([path, mod]) => {
 posts.sort((a, b) => b.date.localeCompare(a.date));
 ---
 
-<Layout title="文章">
-  <h1>文章</h1>
+<Layout title="诗歌">
+  <h1>诗歌</h1>
   <ul>
     {posts.map((post) => (
       <li>
-        <a href= '/blog/first-post' + post.slug}>{post.title}</a >
+        <a href= '/poem/poem-1' + post.slug}>{post.title}</a >
         <span> — {post.date}</span>
       </li>
     ))}
