@@ -21,7 +21,7 @@ posts.sort((a, b) => b.date.localeCompare(a.date));
   <ul>
     {posts.map((post) => (
       <li>
-        <a href= '/projects/project-1' + post.slug}>{post.title}</a >
+        <a href={`/projects/${post.slug}`}>{post.title}</a>
         <span> — {post.date}</span>
       </li>
     ))}
